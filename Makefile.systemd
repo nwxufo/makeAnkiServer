@@ -3,13 +3,15 @@
 
 CONFIG_FILE = ${PRODUCT}.systemd.service
 all: gen-config-file
-	ln -sf ${PWD}/${CONFIG_FILE} ${PRODUCT}.service
-	sudo mv ${PRODUCT}.service /etc/systemd/system/
+#	ln -sf ${PWD}/${CONFIG_FILE} ${PRODUCT}.service
+#	sudo mv ${PRODUCT}.service /etc/systemd/system/
+	sudo mv ${CONFIG_FILE} /etc/systemd/system
 
 gen-config-file:
 	rm -rf ${CONFIG_FILE}
 	touch ${CONFIG_FILE}
 	echo "\
+#This file auto-gened by Makefile; nwx's AnkiServer AutoDeployment.
 [Unit]\n\
 Description=serve AnkiServer;gen by makefile\n\
 After=network.target\n\

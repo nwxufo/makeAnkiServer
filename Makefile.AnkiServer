@@ -19,8 +19,8 @@ creat-user: install
 	
 	( \
     source ${PREFIX}/${PRODUCT}.env/bin/activate;\
+	cd ${DATA_PATCH};\
 	read  -p "Add AnkiServer Account UserName:" ACCOUNT;\
-	echo $$ACCOUNT
 	ankiserverctl.py adduser $$ACCOUNT;\
 	)
 
