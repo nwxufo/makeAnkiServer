@@ -1,0 +1,16 @@
+CONFIG_FILE=AnkiServer.nginx
+
+
+all: install
+	echo " link the AnkiServer.ngix file to nginx"
+install:
+	ln -sf ${PWD}/${CONFIG_FILE} AnkiServer.nginx.ln
+	sudo mv AnkiServer.nginx.ln /etc/nginx/sites-available/
+	ln -sf ${PWD}/${CONFIG_FILE} AnkiServer.nginx.ln
+	sudo mv AnkiServer.nginx.ln /etc/nginx/sites-enabled/
+
+	sudo nginx -t 	#test configure file
+
+uninstall:
+	sudo rm -rf /etc/nginx/sites-available/AnkiServer.nginx.ln
+	sudo rm -rf /etc/nginx/sites-enabled/AnkiServer.nginx.ln

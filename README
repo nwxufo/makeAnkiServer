@@ -1,0 +1,27 @@
+FILE LIST
+=========ps: '-':not used; '+':used
+[+]Makefile.AnkiServer: Make environment for AnkiServer.
+
+[+]Makefile.systemd: gen systemd configure file for AnkiServer.
+
+[+]Makefile: configure Varibles for AnkiServer Total Deployment.
+
+[+]Makefile.nginx: configure nginx for AnkiServer.
+
+[-]Makefile.uwsgi: configure uwsgi according AnkiServer.
+
+[-]anki-server.supervisor.conf: be replaced by systemd.
+
+[+]AnkiServer.nginx: configure file; used by Makefile.nginx.
+
+[+]production.ini: configure file for AnkiServer.
+TODO LIST
+=========
+#nginx: TLS cerfication configure
+
+REF
+===
+1.https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-16-04#configure-uwsgi
+2.https://pypi.python.org/pypi/AnkiServer/2.0.1
+3.https://pypi.python.org/pypi/AnkiServer/2.0.6
+4.https://github.com/dsnopek/anki-sync-server

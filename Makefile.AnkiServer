@@ -1,0 +1,46 @@
+#MAKEFILE FOR ANKI-SERVER
+#2.0.6 for python2
+#help doc https://pypi.python.org/pypi/AnkiServer/2.0.6
+
+SHELL := /bin/bash #important for 'source' command ; defualt shell '/bin/sh' did not surpport it.
+
+all: config
+	@echo "Built environment for AnkiServer."
+
+creat-user: install
+# sqlite3 auth.db 'CREATE TABLE auth (user VARCHAR PRIMARY KEY, hash VARCHAR)'
+# Enter username and password when prompted.
+# read -p "Username: " USER && read -sp "Password: " PASS
+# SALT=$(openssl rand -hex 8)
+# HASH=$(echo -n "$USER$PASS$SALT" | sha256sum | sed 's/[ ]*-$//')$SALT
+# sqlite3 auth.db "INSERT INTO auth VALUES ('$USER', '$HASH')"
+# mkdir -p "collections/$USER"
+# unset USER PASS SALT HASH
+	
+	( \
+    source ${PREFIX}/${PRODUCT}.env/bin/activate;\
+	read  -p "Add AnkiServer Account UserName:" ACCOUNT;\
+	echo $$ACCOUNT
+	ankiserverctl.py adduser $$ACCOUNT;\
+	)
+
+
+config: creat-user
+
+	#TODO git clone git .ini .service .nginx 
+	cp production.ini ${PREFIX}/${PRODUCT}.env
+	
+
+install: prepare
+#	cd ${PREFIX}/${PRODUCT}.env/
+	( \
+        source ${PREFIX}/AnkiServer.env/bin/activate; \
+	pip --trusted-host pypi.mirrors.ustc.edu.cn install webob PasteDeploy PasteScript sqlalchemy simplejson; \
+	pip --trusted-host pypi.mirrors.ustc.edu.cn install AnkiServer; \
+	)
+
+prepare:
+	rm -rf ${PREFIX}/${PRODUCT}.env
+	virtualenv -p python2 ${PREFIX}/${PRODUCT}.env
+
+

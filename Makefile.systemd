@@ -1,0 +1,30 @@
+#MAKE CONFIG FILE FOR SYSTEMD
+
+
+CONFIG_FILE = ${PRODUCT}.systemd.service
+all: gen-config-file
+	ln -sf ${PWD}/${CONFIG_FILE} ${PRODUCT}.service
+	sudo mv ${PRODUCT}.service /etc/systemd/system/
+
+gen-config-file:
+	rm -rf ${CONFIG_FILE}
+	touch ${CONFIG_FILE}
+	echo "\
+[Unit]\n\
+Description=serve AnkiServer;gen by makefile\n\
+After=network.target\n\
+\n\
+[Service]\n\
+User=${USER}\n\
+Group=${GROUP}\n\
+WorkingDirectory=${PREFIX}/${PRODUCT}.env/\n\
+Environment=\"PATH=${PREFIX}/${PRODUCT}.env/bin\"\n\
+ExecStart=/usr/local/bin/paster serve production.ini\n\
+\n\
+[Install]\n\
+WantedBy=multi-user.target\n\
+" 	>>${CONFIG_FILE}
+
+uninstall:
+	sudo rm -rf /etc/systemd/system/${PRODUCT}.service
+	sudo rm -rf ${CONFIG_FILE}

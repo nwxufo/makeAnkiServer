@@ -1,0 +1,17 @@
+
+all:
+	
+	touch ${PRODUCT}.uwsgi.ini
+	echo "[uwsgi]" >>${PRODUCT}.uwsgi.ini
+	echo "[uwsgi]" >>${PRODUCT}.uwsgi.ini
+
+	echo "[uwsgi]" >>${PRODUCT}.uwsgi.ini
+	echo "[uwsgi]" >>${PRODUCT}.uwsgi.ini
+	
+	echo "[uwsgi]" >>${PRODUCT}.uwsgi.ini
+	echo "[uwsgi]" >>${PRODUCT}.uwsgi.ini
+	echo "[uwsgi]" >>${PRODUCT}.uwsgi.ini
+
+	echo "[uwsgi]" >>${PRODUCT}.uwsgi.ini
+
+	echo "[uwsgi]" >>${PRODUCT}.uwsgi.ini
