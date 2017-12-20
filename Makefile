@@ -2,8 +2,9 @@ PRODUCT=AnkiServer
 
 SHELL := /bin/bash
 PREFIX=/srv/test
+DATA_PATCH=${PREFIX}/${PRODUCT}.env
 
-USER=fenghuo 	#system user which to run as systemd.
+USER=fenghuo 	#system user which to run as systemd or supervisor.
 GROUP=fenghuo
 
 export PRODUCT
@@ -11,9 +12,10 @@ export SHELL
 export USER
 export GROUP
 export PREFIX
-
+export DATA_PATCH
 #database dir
-Data_Patch=/data
+#Warning: Must corresponding with file production.ini 's parameter
+#	[app:sync_app]
 
 all:
 	echo ""make install" for delopy AnkiService"
@@ -27,7 +29,7 @@ creat-account:
 	( \
     source ${PREFIX}/${PRODUCT}.env/bin/activate;\
 	read  -p "Add AnkiServer Account UserName:" ACCOUNT;\
-	cd $Data_Patch;\
+	cd $DATA_PATCH;\
 	ankiserverctl.py adduser $$ACCOUNT;\
 	)
 
