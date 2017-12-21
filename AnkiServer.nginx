@@ -2,15 +2,17 @@
 #documentation: https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-16-04#configure-uwsgi
 #documentation:https://github.com/dsnopek/anki-sync-server
 
+#TODO: Dynamic config para
+#1. server_name:
 
 server {
     # Allow access via HTTP
-    listen 80;
-    listen [::]:80;
+    listen 8080;
+    listen [::]:8080;
 
     # Allow access via HTTPS
-    listen 443 ssl spdy;
-    listen [::]:443 ssl spdy;
+    listen 1443 ssl spdy;
+    listen [::]:1443 ssl spdy;
 
     # Set server names for access
     server_name anki.server.name;
@@ -19,11 +21,12 @@ server {
     #ssl_certificate     /path/to/fullchain.pem;
     #ssl_certificate_key /path/to/privkey.pem;
 
-    location / {
+    location /AnkiServer {
         # Prevent nginx from rejecting larger media files
         client_max_body_size 0;
-
+	
         proxy_pass http://localhost:22666;
+
         include proxy_params;
     }
 }
