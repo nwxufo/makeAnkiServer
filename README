@@ -15,9 +15,19 @@ FILE LIST
 [+]AnkiServer.nginx: configure file; used by Makefile.nginx.
 
 [+]production.ini: configure file for AnkiServer.
+
+Parameters Map:
+===============
+production.ini 		AnkiServer.nginx
+host:port 		proxy_pass
+host			proxy_pass
+		
+
 TODO LIST
 =========
 #nginx: TLS cerfication configure
+nigx: url map configure both production.ini and .nginx.config
+what is nginix's server_name parameter in AnkiServer.nginx
 
 REF
 ===
