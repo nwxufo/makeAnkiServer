@@ -28,8 +28,9 @@ creat-user: install
 config: creat-user
 
 	#TODO git clone git .ini .service .nginx 
-	cp production.ini ${PREFIX}/${PRODUCT}.env
-	
+	#cp production.ini ${PREFIX}/${PRODUCT}.env
+	ln -sf ${PWD}/production.ini tmp.lnk
+	mv tmp.lnk ${PREFIX}/${PRODUCT}.env/production.ini
 
 install: prepare
 #	cd ${PREFIX}/${PRODUCT}.env/
