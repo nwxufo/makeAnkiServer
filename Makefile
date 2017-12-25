@@ -4,8 +4,8 @@ SHELL := /bin/bash
 PREFIX=/srv/test
 DATA_PATCH=${PREFIX}/${PRODUCT}.env
 
-USER=fenghuo 	#system user which to run as systemd or supervisor.
-GROUP=fenghuo
+USER=milo #system user which to run as systemd or supervisor.
+GROUP=milo
 
 export PRODUCT
 export SHELL
@@ -20,6 +20,7 @@ export DATA_PATCH
 all:
 	echo ""make install" for delopy AnkiService"
 	echo ""make uninstall" for clear AnkiService delopyment file"
+	echo "README FIRST! README FIRST! README FIRST!"
 
 install : help-info
 	echo "install ${PRODUCT} successful"
