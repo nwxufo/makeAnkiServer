@@ -10,8 +10,7 @@ all: gen-config-file
 gen-config-file:
 	rm -rf ${CONFIG_FILE}
 	touch ${CONFIG_FILE}
-	echo "\
-#This file auto-gened by Makefile; nwx's AnkiServer AutoDeployment.
+	echo -e "\
 [Unit]\n\
 Description=serve AnkiServer;gen by makefile\n\
 After=network.target\n\

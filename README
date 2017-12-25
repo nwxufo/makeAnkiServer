@@ -16,6 +16,15 @@ FILE LIST
 
 [+]production.ini: configure file for AnkiServer.
 
+Requirments:
+============
+virtualenv
+nginx
+
+Install:
+========
+make #for list how to make it.
+
 Parameters Map:
 ===============
 production.ini 		AnkiServer.nginx
