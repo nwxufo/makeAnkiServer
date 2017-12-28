@@ -6,6 +6,7 @@ all: gen-config-file
 #	ln -sf ${PWD}/${CONFIG_FILE} ${PRODUCT}.service
 #	sudo mv ${PRODUCT}.service /etc/systemd/system/
 	sudo mv ${CONFIG_FILE} /etc/systemd/system
+	sudo systemctl daemon-reload
 
 gen-config-file:
 	rm -rf ${CONFIG_FILE}
