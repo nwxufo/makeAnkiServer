@@ -1,7 +1,7 @@
 #MAKE CONFIG FILE FOR SYSTEMD
 
 
-CONFIG_FILE = ${PRODUCT}.systemd.service
+CONFIG_FILE = ${PRODUCT}.service
 all: gen-config-file
 #	ln -sf ${PWD}/${CONFIG_FILE} ${PRODUCT}.service
 #	sudo mv ${PRODUCT}.service /etc/systemd/system/
