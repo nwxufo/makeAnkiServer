@@ -17,6 +17,7 @@ Description=serve AnkiServer;gen by makefile\n\
 After=network.target\n\
 \n\
 [Service]\n\
+Restart=always
 User=${USER}\n\
 Group=${GROUP}\n\
 WorkingDirectory=${PREFIX}/${PRODUCT}.env/\n\
