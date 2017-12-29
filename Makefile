@@ -2,10 +2,10 @@ PRODUCT=AnkiServer
 
 SHELL := /bin/bash
 PREFIX=/srv/test
-DATA_PATCH=${PREFIX}/${PRODUCT}.env
+DATA_PATCH=${PREFIX}/${PRODUCT}.data
 
-USER=milo #system user which to run as systemd or supervisor.
-GROUP=milo
+USER=fenghuo #system user which to run as systemd or supervisor.
+GROUP=fenghuo
 
 export PRODUCT
 export SHELL
@@ -18,13 +18,19 @@ export DATA_PATCH
 #	[app:sync_app]
 
 all:
-	echo ""make install" for delopy AnkiService"
-	echo ""make uninstall" for clear AnkiService delopyment file"
+	echo "make install" for delopy AnkiService"
+	echo "make uninstall" for clear AnkiService delopyment file"
 	echo "README FIRST! README FIRST! README FIRST!"
 
 install : help-info
 	echo "install ${PRODUCT} successful"
+	echo "if you run on Debian: then run: `make fix-bugs`"
+	echo "now run --make create-account--- to creat a AnkiServer User."
 #	$(MAKE) -f Makefile.uwsgi
+
+fix-bugs:
+#fix Debian 8/9 's bug : not found anki module
+	echo "${PREFIX}/${PRODUCT}.env/anki-bundled" >>${PREFIX}/${PRODUCT}.env/anki-module.pth
 
 creat-account:
 	( \

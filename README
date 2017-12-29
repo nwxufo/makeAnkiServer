@@ -1,3 +1,6 @@
+SUPPORT:
+========
+tested : ubuntu 14.04; Debian 8/9
 FILE LIST
 =========ps: '-':not used; '+':used
 [+]Makefile.AnkiServer: Make environment for AnkiServer.

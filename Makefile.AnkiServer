@@ -7,7 +7,7 @@ SHELL := /bin/bash #important for 'source' command ; defualt shell '/bin/sh' did
 all: config
 	@echo "Built environment for AnkiServer."
 
-creat-user: install
+creat-user: 
 # sqlite3 auth.db 'CREATE TABLE auth (user VARCHAR PRIMARY KEY, hash VARCHAR)'
 # Enter username and password when prompted.
 # read -p "Username: " USER && read -sp "Password: " PASS
@@ -25,8 +25,7 @@ creat-user: install
 	)
 
 
-config: creat-user
-
+config: install
 	#TODO git clone git .ini .service .nginx 
 	#cp production.ini ${PREFIX}/${PRODUCT}.env
 	ln -sf ${PWD}/production.ini tmp.lnk
