@@ -19,7 +19,13 @@ FILE LIST
 
 [+]production.ini: configure file for AnkiServer.
 
-Requirments:
+TEST Env APP List:
+=========
+AnkiServer: 2.0.6
+Client Ubuntu 2.0.47
+Android: 2.8.3
+
+Environment Requirments:
 ============
 virtualenv
 nginx
@@ -33,7 +39,15 @@ Parameters Map:
 production.ini 		AnkiServer.nginx
 host:port 		proxy_pass
 host			proxy_pass
-		
+
+Clent-Pulgins:
+==============
+import into your Desktop Anki Client
+
+Bugs for AnkiServer
+===================
+some para setting in production.ini such like data's path does't work.
+Better  way modify it in virtualenv/bin/ankiserver.py manually.	
 
 TODO LIST
 =========
