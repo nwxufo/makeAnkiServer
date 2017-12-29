@@ -11,7 +11,7 @@ all: gen-config-file
 gen-config-file:
 	rm -rf ${CONFIG_FILE}
 	touch ${CONFIG_FILE}
-	echo -e "\
+	echo  "\
 [Unit]\n\
 Description=serve AnkiServer;gen by makefile\n\
 After=network.target\n\

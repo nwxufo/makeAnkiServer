@@ -2,7 +2,7 @@ PRODUCT=AnkiServer
 
 SHELL := /bin/bash
 PREFIX=/srv/test
-DATA_PATCH=${PREFIX}/${PRODUCT}.data
+#DATA_PATCH=${PREFIX}/${PRODUCT}.data
 
 USER=fenghuo #system user which to run as systemd or supervisor.
 GROUP=fenghuo
@@ -21,6 +21,7 @@ all:
 	echo "make install" for delopy AnkiService"
 	echo "make uninstall" for clear AnkiService delopyment file"
 	echo "README FIRST! README FIRST! README FIRST!"
+	echo "modify the var listed in the Maekfile before install"
 
 install : help-info
 	echo "install ${PRODUCT} successful"
@@ -30,7 +31,7 @@ install : help-info
 
 fix-bugs:
 #fix Debian 8/9 's bug : not found anki module
-	echo "${PREFIX}/${PRODUCT}.env/anki-bundled" >>${PREFIX}/${PRODUCT}.env/anki-module.pth
+	echo "${PREFIX}/${PRODUCT}.env/anki-bundled" >>${PREFIX}/${PRODUCT}.env/lib/python2.7/site-packages/anki-module.pth
 
 creat-account:
 	( \
